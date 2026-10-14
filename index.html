@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090d17" />
+    <meta name="description" content="Pulso Cero, un arcade de reflex y supervivencia." />
+    <title>Pulso Cero | Arcade</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="boot-screen" id="boot-screen">
+        <div class="boot-panel">
+          <span class="boot-kicker">sector 07</span>
+          <h1>PULSO <span>CERO</span></h1>
+          <p>Esquiva los núcleos, recoge fragmentos y aguanta cada vez más tiempo en el vacío.</p>
+          <div class="boot-actions">
+            <button class="boot-button" id="boot-start" type="button">Entrar al sector</button>
+          </div>
+          <ul class="boot-list">
+            <li>Esquiva los peligros</li>
+            <li>Acumula fragmentos</li>
+            <li>Mejora tu blindaje</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="game-view is-hidden" id="game-view">
+        <header class="topbar">
+          <a class="wordmark" href="#" aria-label="Pulso Cero, inicio">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>PULSO <strong>CERO</strong></span>
+          </a>
+          <div class="top-status"><span class="live-dot"></span> Sector 07 <span class="status-divider"></span> en línea</div>
+          <div class="top-counter"><span class="counter-gem" aria-hidden="true">◆</span><span id="bank-count">0</span><span class="counter-label">cr</span></div>
+        </header>
+
+        <main class="game-layout">
+          <section class="play-column" aria-label="Zona de juego">
+            <div class="stage-header">
+              <div class="title-stack">
+                <div class="mini-tag">señal // activa</div>
+                <h2>Escapa del <em>vacío.</em></h2>
+              </div>
+              <div class="best-score"><span>récord</span><strong id="best-score">00000</strong></div>
+            </div>
+
+            <div class="stage" id="stage">
+              <div id="arena" aria-label="Juego de esquivar obstáculos"></div>
+              <div class="scanline" aria-hidden="true"></div>
+              <div class="game-overlay" id="game-overlay">
+                <div class="overlay-content">
+                  <span class="overlay-kicker" id="overlay-kicker">zona de descenso</span>
+                  <h3 id="overlay-title">Mantente en la <em>cuadrícula.</em></h3>
+                  <p id="overlay-copy">Esquiva los núcleos rojos. Reúne fragmentos. Mantén el blindaje activo.</p>
+                  <button class="start-button" id="start-button" type="button">Iniciar <span aria-hidden="true">↗</span></button>
+                  <div class="control-hint"><kbd>A</kbd> / <kbd>D</kbd> <span class="hint-separator">·</span> <kbd>SPACE</kbd></div>
+                </div>
+              </div>
+              <div class="stage-corner corner-tl" aria-hidden="true"></div>
+              <div class="stage-corner corner-br" aria-hidden="true"></div>
+            </div>
+
+            <div class="stage-footer">
+              <span><i class="legend-dot hazard-dot"></i> hostil</span>
+              <span><i class="legend-dot shard-dot"></i> orbe</span>
+              <span class="run-label" id="run-label">en espera</span>
+            </div>
+          </section>
+
+          <aside class="side-panel" aria-label="Estadísticas y mejoras">
+            <section class="run-readout">
+              <div class="panel-tag">feed de combate</div>
+              <div class="score-readout"><span id="run-score">00000</span><small>pts</small></div>
+              <div class="metric-row"><span>tiempo</span><strong id="run-time">00:00</strong></div>
+              <div class="metric-row"><span>fragmentos</span><strong class="gold-value"><span aria-hidden="true">◆</span> <span id="run-shards">0</span></strong></div>
+              <div class="metric-row"><span>combo</span><strong id="run-combo">x1</strong></div>
+            </section>
+
+            <section class="upgrade-section">
+              <div class="section-title"><div class="panel-tag">taller</div><span class="stock-count" id="shield-stock">0 / 3</span></div>
+              <div class="upgrade-name"><span class="shield-icon" aria-hidden="true">⬡</span><div><strong>rig de blindaje</strong><small>+1 impacto</small></div></div>
+              <button class="upgrade-button" id="buy-shield" type="button"><span>mejorar</span><strong id="shield-cost">◆ 20</strong></button>
+              <p class="upgrade-note" id="upgrade-note">Blindaje listo al inicio.</p>
+            </section>
+
+            <section class="how-to-play">
+              <div class="panel-tag">reactor</div>
+              <div class="meter-wrap"><span class="meter-label">amenaza</span><span id="danger-level">estable</span></div>
+              <div class="danger-meter"><span id="danger-meter-fill"></span></div>
+              <div class="dash-meter"><span id="dash-meter-fill"></span></div>
+              <div class="dash-label"><span>carga</span><span id="dash-state">listo</span></div>
+            </section>
+            <div class="panel-footer"><span>récord local</span><span>escritorio · móvil</span></div>
+          </aside>
+        </main>
+        <footer class="site-footer"><span>pulso cero</span><span>bucle de supervivencia</span></footer>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
